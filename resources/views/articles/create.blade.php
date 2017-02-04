@@ -22,13 +22,7 @@
             {!! Form::submit('发表文章',['class'=>'btn btn-success form-control']) !!}
         </div>
     {!! Form::close() !!}
-    @if($errors->any())
-        <ul class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+    @include('errors.list')
     <script type="text/javascript">
         $(function () {
             $(".js-example-basic-multiple").select2({

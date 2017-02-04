@@ -21,7 +21,7 @@ class ArticleController extends Controller
 //        return view('articles.lists', ['title'=>$title]);
 //        $first = ['jelly', 'bool'];
 
-        $articles = Article::latest()->published()->get();
+        $articles = Article::latest()->get();
         return view('articles.index', compact('articles'));
     }
 
@@ -47,13 +47,24 @@ class ArticleController extends Controller
         $input['introduction'] = mb_substr($request->get('content'),0,64);
         $article = Article::create($input);
         $article->tags()->attach($request->input('tag_list'));
-        return redirect('/');
+
+        return redirect('article');
     }
 
     public function edit($id)
     {
         $article = Article::findOrFail($id);
+        $tags = Tag::lists('name','id');
 
-        return view('articles.edit', compact('article'));
+        return view('articles.edit', compact('article','tags','id'));
+    }
+
+    public function update(Requests\StoreArticleRequest $request, $id)
+    {
+        $article = Article::findorFail($id);
+        $article->update($request->all());
+        $article->tags()->sync($request->input('tag_list'));
+
+        return redirect('article');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <h1>撰写新文章</h1>
-    {!! Form::model($article,['method'=>'PATCH','url'=>'article']) !!}
+    {!! Form::model($article,['method'=>'PATCH','url'=>'article/'.$id]) !!}
     <div class="form-group">
         {!! Form::label('title', '标题：') !!}
         {!! Form::text('title',null,['class'=>'form-control']) !!}
@@ -16,11 +16,18 @@
     </div>
     <div class="form-group">
         {!! Form::label('tag_list', '标签：') !!}
-        {!! Form::select('tag_list[]',$tags, null,['class'=>'form-control js-example-basic-multiple','multiple'=>'multiple']) !!}
+        {!! Form::select('tag_list[]',$tags, $article->tags->lists("id")->toArray(),['class'=>'form-control js-example-basic-multiple','multiple'=>'multiple']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('发表文章',['class'=>'btn btn-success form-control']) !!}
     </div>
     {!! Form::close() !!}
-
+    @include('errors.list')
+    <script type="text/javascript">
+        $(function () {
+            $(".js-example-basic-multiple").select2({
+                placeholder:"添加标签"
+            });
+        });
+    </script>
 @endsection
