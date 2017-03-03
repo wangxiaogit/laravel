@@ -82,6 +82,7 @@ class ComposerStaticInit709b5c6efe7ef4c6bda0b9fdf9920b5e
         ),
         'C' => 
         array (
+            'Cron\\' => 5,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
@@ -219,6 +220,10 @@ class ComposerStaticInit709b5c6efe7ef4c6bda0b9fdf9920b5e
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Cron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
+        ),
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
@@ -274,13 +279,6 @@ class ComposerStaticInit709b5c6efe7ef4c6bda0b9fdf9920b5e
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
             ),
         ),
-        'C' => 
-        array (
-            'Cron' => 
-            array (
-                0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src',
-            ),
-        ),
         'B' => 
         array (
             'Barryvdh' => 
@@ -291,6 +289,7 @@ class ComposerStaticInit709b5c6efe7ef4c6bda0b9fdf9920b5e
     );
 
     public static $classMap = array (
+        'AddPhoneToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_03_081914_add_phone_to_users_table.php',
         'CreateArticleTagTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_24_024601_create_article_tag_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_23_070804_create_articles_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -369,6 +368,10 @@ class ComposerStaticInit709b5c6efe7ef4c6bda0b9fdf9920b5e
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
+        'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
+        'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
+        'PHPUnit\\Framework\\TestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestListener.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',

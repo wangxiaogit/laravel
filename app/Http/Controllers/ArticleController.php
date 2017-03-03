@@ -12,6 +12,18 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+//        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+
+        $this->middleware('auth', ['expect' => ['index', 'show']]);
+    }
+
     public function index()
     {
 //        $title = '文章标题1';
@@ -21,7 +33,8 @@ class ArticleController extends Controller
 //        return view('articles.lists', ['title'=>$title]);
 //        $first = ['jelly', 'bool'];
 
-        $articles = Article::latest()->get();
+        $articles = Article::latest()->Published()->get();
+
         return view('articles.index', compact('articles'));
     }
 
